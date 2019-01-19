@@ -1,0 +1,179 @@
+Команды OpenDCHub
+
+!commands
+
+Commands:
+!set 'variable' 'value'
+Устанавливает значение в конфигурационном файле. Конфигурационный файл находится в 
+директории .opendchub, который находится в корневом каталоге вашего домашнего каталога. 
+Переменные описываются в конфигурационном файле. Программа должна работать , 
+как только первой , чтобы создать файл конфигурации. 
+MOTD помещается в файл его собственной. Для изменения MOTD, использование «! Набор MOTD».
+
+Sets a value in the config file. The config file is located in the
+.opendchub directory, which is located in the root of your home directory.
+The variables are explained in the config file. The program must be run
+once first to create the config file.
+The motd is placed in a file of it's own. To change the motd, use "!set motd".
+
+!ban 'ip or hostname' 'time'
+Добавляет запись в банлисте. Запись может быть подсеть или весь IP - 
+адрес или имя хоста. Хосты могут содержать «*» в качестве шаблона. Время является 
+длительность запрета и может быть 0 для постоянного или значения , за которым следует 
+период (например , 10 м). Принятые периоды с (секунды), м (мин, ч (часы) и 
+d (дни).
+
+Adds an entry to the banlist. The entry can be a subnet or a whole ip
+address or a hostname. Hostnames may contain '*' as wildcard. The time is the
+duration of the ban and can be 0 for permanent or a value followed by a
+period (e.g. 10m). Accepted periods are s(seconds), m(minutes, h(hours) and
+d(days).
+
+!nickban 'nick' 'time'
+Добавляет запись в банлисте ник. Время такое же , как и для команды запрета
+
+Adds an entry to the nick banlist. The time is the same as for the ban command
+
+!allow 'ip or hostname'
+Добавляет запись в allowlist. Этот файл работает как противоположность 
+банлиста, то есть записи в этом файле допускаются к ступице.
+
+Adds an entry to the allowlist. This file works like the opposite of
+banlist, i.e, the entries in this file are allowed to the hub.
+
+!getbanlist
+Отображает файл Банлист.
+
+Displays the banlist file.
+
+!getnickbanlist
+Отображает Банлист файл зарубки.
+
+Displays the nick banlist file.
+
+!getallowlist
+Отображает файл allowlist.
+
+Displays the allowlist file.
+
+!unban 'ip or hostname'
+Удаляет запись из файла банов. Запись имени хоста / IP в файле должен 
+быть точным соответствием от предусмотренного в команде.
+
+Removes an entry from the banlist file. The hostname/IP entry in the file must
+be an exact match of the one provided in the command.
+
+!unnickban 'nick'
+Удаляет запись из файла Banlist ника. Запись зарубка в файле должен 
+быть точным соответствием от предусмотренного в команде.
+
+Removes an entry from the nick banlist file. The nick entry in the file must
+be an exact match of the one provided in the command.
+
+!unallow 'ip or hostname'
+Удаляет запись из файла allowlist.
+
+Removes an entry from the allowlist file.
+
+!addreguser 'nickname' 'password' 'op'
+добавляет пользователю в RegFile. если «оп» равен 1, то пользователь оп, который позволяет пользователю 
+использовать специальные команды , оп, например $ Кик. Если «оп» 2, пользователь 
+также получает привилегированность управлять ступицей через чат. Если «оп является 0, 
+пользователь обычным зарегистрированным пользователь без специальных привилегий.
+
+Adds a user the the regfile. if 'op' is 1, the user is op, which allows user
+to use the dedicated op commands, for example $Kick. If 'op' is 2, the user
+also gets priviledges to administer the hub through the chat. If 'op is 0,
+the user is an ordinary registered user with no special priviledges.
+
+!getreglist
+Отображает reglist.
+
+Displays the reglist.
+
+!removereguser 'nickname'
+Удаляет пользователя из reglist.
+
+Removes a user from the reglist.
+
+!addlinkedhub 'hubip' 'port'
+Добавляет концентратор к связанному списку хаба. Концентратор связан с концентраторами на этом 
+списке, которым позволяет пользователям осуществлять поиск файлов и подключения к 
+пользователям на других концентраторов. «порт» является порт , на котором запускается связанный узел.
+
+Adds a hub to the linked hub list. The hub is linked with the hubs on this
+list, wich makes it possible for users to search for file and connect to
+users on other hubs. 'port' is the port on which the linked hub is run.
+
+!getlinklist
+Отображает связанные концентраторы файл.
+
+Displays the linked hubs file.
+
+!removelinkedhub 'hubip' 'port'
+Удаляет ступицу из связанного списка хаба.
+
+Removes a hub from the linked hub list.
+
+!getconfig
+Displays the config file.
+
+!getmotd
+Displays the motd file.
+
+!quitprogram
+Завершает программу. Имеет тот же эффект, посылая термин сигнал к 
+процессу, который также делает ступицу выключая чисто.
+
+Terminates the program. Has the same effect as sending term signal to the
+process, which also makes the hub shutting down cleanly.
+
+!exit
+Отключает от хаба
+
+Disconnects from the hub.
+
+!redirectall 'ip or hostname'
+Перенаправление всех пользователей к 'Ip или имя хоста.
+
+Redirects all users to 'ip or hostname'.
+
+!gethost 'nick'
+Отображает имя хоста пользователя с ником «ник».
+
+Displays the hostname of user with nickname 'nick'.
+
+!getip 'nick'
+Показывает IP пользователя с ником «ник».
+
+Displays the ip of user with nickname 'nick'.
+
+!massmessage 'message'
+тправляет личное сообщение для всех зарегистрированных пользователей.
+
+Sends a private message to all logged in users.
+
+!reloadscripts
+перезагружает скрипты в каталоге сценариев.
+
+Reloads the scripts in the script directory.
+
+!addperm 'nick' 'permission'
+Добавляет разрешение (один из BAN_ALLOW, USER_INFO, MASSMESSAGE, USER_ADMIN) 
+оператору с ником «ник».
+
+Adds the permission (one of BAN_ALLOW, USER_INFO, MASSMESSAGE, USER_ADMIN)
+to the operator with nickname 'nick'.
+
+!removeperm 'nick' 'permission'
+Удаляет права доступа
+
+Removes the permission (one of BAN_ALLOW, USER_INFO, MASSMESSAGE, USER_ADMIN)
+from the operator with nickname 'nick'.
+
+!showperms 'nick'
+Показывает права доступа (BAN_ALLOW, USER_INFO, MASSMESSAGE, USER_ADMIN) в 
+настоящее время предоставленные оператором с ником «ник».
+
+Shows the permissions (BAN_ALLOW, USER_INFO, MASSMESSAGE, USER_ADMIN)
+currently granted to the operator with nickname 'nick'.
